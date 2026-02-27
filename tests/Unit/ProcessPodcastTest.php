@@ -12,13 +12,13 @@ class ProcessPodcastTest extends TestCase
     public function it_dispatches_process_podcast_job()
     {
         // 1. Подмени очередь на fake
-        Queue::fake(); джлл
+        Queue::fake();
 
         // 2. Диспетчеризируй Job
         ProcessPodcast::dispatch('Тестовый подкаст');
 
         // 3. Проверь, что Job добавлен в очередь
-        Queue::assertPushed(ProcessPodcast::class, function ($job) {se
+        Queue::assertPushed(ProcessPodcast::class, function ($job) {
             return $job->podcastName === 'Тестовый подкаст';
         });
     }
