@@ -1,0 +1,52 @@
+{
+  "name": "queue.lara.loc (Laravel)",
+  "dockerComposeFile": [
+    "../compose.yaml"
+  ],
+  "service": "laravel.test",
+  "workspaceFolder": "/var/www/html",
+  "forwardPorts": [
+    80,
+    5173,
+    5432,
+    6379,
+    7700,
+    15672,
+    8025
+  ],
+  "portsAttributes": {
+    "80": {
+      "label": "Laravel (Sail)"
+    },
+    "5173": {
+      "label": "Vite"
+    },
+    "5432": {
+      "label": "Postgres"
+    },
+    "6379": {
+      "label": "Redis"
+    },
+    "7700": {
+      "label": "Meilisearch"
+    },
+    "15672": {
+      "label": "RabbitMQ (UI)"
+    },
+    "8025": {
+      "label": "Mailpit (UI)"
+    }
+  },
+  "postCreateCommand": "bash -lc 'set -euo pipefail; if [ ! -f .env ]; then cp .env.example .env; fi; composer install; npm install; php artisan key:generate --force; php artisan migrate --force || true'",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "bmewburn.vscode-intelephense-client",
+        "onecentlin.laravel-blade",
+        "bradlc.vscode-tailwindcss",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  }
+}
+
