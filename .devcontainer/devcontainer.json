@@ -12,7 +12,8 @@
     6379,
     7700,
     15672,
-    8025
+    8025,
+    9003
   ],
   "portsAttributes": {
     "80": {
@@ -35,13 +36,22 @@
     },
     "8025": {
       "label": "Mailpit (UI)"
+    },
+    "9003": {
+      "label": "Xdebug"
     }
+  },
+  "containerEnv": {
+    "XDEBUG_MODE": "debug,develop",
+    "XDEBUG_CONFIG": "client_host=127.0.0.1 client_port=9003",
+    "PHP_IDE_CONFIG": "serverName=queue.lara.loc"
   },
   "postCreateCommand": "bash -lc 'set -euo pipefail; if [ ! -f .env ]; then cp .env.example .env; fi; composer install; npm install; php artisan key:generate --force; php artisan migrate --force || true'",
   "customizations": {
     "vscode": {
       "extensions": [
         "bmewburn.vscode-intelephense-client",
+        "xdebug.php-debug",
         "onecentlin.laravel-blade",
         "bradlc.vscode-tailwindcss",
         "esbenp.prettier-vscode"
