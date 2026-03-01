@@ -54,7 +54,12 @@
         "xdebug.php-debug",
         "onecentlin.laravel-blade",
         "bradlc.vscode-tailwindcss",
-        "esbenp.prettier-vscode"
+        "esbenp.prettier-vscode",
+        "GitHub.copilot-chat",
+        "GigaCode.gigacode-vscode",
+        "eamodio.gitlens",
+        "ZiCorpLLC.lmstudio-copilot",
+        "RooVeterinaryInc.roo-cline"
       ]
     }
   }
