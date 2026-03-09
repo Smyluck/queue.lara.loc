@@ -59,7 +59,10 @@
         "GigaCode.gigacode-vscode",
         "eamodio.gitlens",
         "ZiCorpLLC.lmstudio-copilot",
-        "RooVeterinaryInc.roo-cline"
+        "RooVeterinaryInc.roo-cline",
+        "yzhang.markdown-all-in-one",
+        "davidanson.vscode-markdownlint",
+        "yzane.markdown-pdf"
       ]
     }
   }
