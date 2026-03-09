@@ -10,4 +10,3 @@ final class ApiSpec
 {
     // This class exists only for OpenAPI attributes scanning.
 }
-

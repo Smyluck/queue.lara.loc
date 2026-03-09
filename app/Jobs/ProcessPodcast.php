@@ -2,11 +2,11 @@
 
 namespace App\Jobs;
 
+use App\Mail\PodcastProcessed;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\PodcastProcessed;
 
 class ProcessPodcast implements ShouldQueue
 {
@@ -25,7 +25,7 @@ class ProcessPodcast implements ShouldQueue
      */
     public function handle(): void
     {
-        Log::info('Processing podcast: ' . $this->podcastName);
+        Log::info('Processing podcast: '.$this->podcastName);
         Mail::to('admin@example.com')->send(new PodcastProcessed($this->podcastName));
     }
 }

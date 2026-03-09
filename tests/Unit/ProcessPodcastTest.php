@@ -3,8 +3,8 @@
 namespace Tests\Unit;
 
 use App\Jobs\ProcessPodcast;
-use PHPUnit\Framework\Attributes\Test;
 use Illuminate\Support\Facades\Queue;
+use PHPUnit\Framework\Attributes\Test;
 use Tests\TestCase;
 
 class ProcessPodcastTest extends TestCase

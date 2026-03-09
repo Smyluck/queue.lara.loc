@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SendReportRequest;
-use Illuminate\Http\Request;
 use App\Jobs\SendReport;
 use OpenApi\Attributes as OA;
 
@@ -41,6 +40,7 @@ class ReportController extends Controller
         $text = $request->input('text');
 
         SendReport::dispatch($email, $text);
+
         return response()->json(['status' => 'queued']);
     }
 }

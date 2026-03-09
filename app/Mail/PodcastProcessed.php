@@ -10,9 +10,7 @@ class PodcastProcessed extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public function __construct(public string $podcastName)
-    {
-    }
+    public function __construct(public string $podcastName) {}
 
     public function build(): self
     {
@@ -23,4 +21,3 @@ class PodcastProcessed extends Mailable
             ]);
     }
 }
-

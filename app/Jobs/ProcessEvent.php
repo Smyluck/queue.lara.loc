@@ -24,6 +24,6 @@ class ProcessEvent implements ShouldQueue
     public function handle(): void
     {
         Log::info("Обработка события: {$this->data['event']}", $this->data);
-        
+
     }
 }

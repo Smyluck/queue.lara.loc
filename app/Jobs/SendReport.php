@@ -2,11 +2,11 @@
 
 namespace App\Jobs;
 
+use App\Mail\Report;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Queue\Queueable;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Mail;
-use App\Mail\Report;
 
 class SendReport implements ShouldQueue
 {
@@ -15,9 +15,7 @@ class SendReport implements ShouldQueue
     /**
      * Create a new job instance.
      */
-    public function __construct(public string $email, public string $text)
-    {
-    }
+    public function __construct(public string $email, public string $text) {}
 
     /**
      * Execute the job.

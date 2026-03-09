@@ -11,4 +11,4 @@ Route::get('/user', function (Request $request) {
 
 Route::post('/send-report', ReportController::class);
 
-Route::post('/events',[EventController::class,'sendEvent']);
+Route::post('/events', [EventController::class, 'sendEvent']);
