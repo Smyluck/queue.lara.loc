@@ -3,12 +3,13 @@
 namespace Tests\Unit;
 
 use App\Jobs\ProcessPodcast;
+use PHPUnit\Framework\Attributes\Test;
 use Illuminate\Support\Facades\Queue;
 use Tests\TestCase;
 
 class ProcessPodcastTest extends TestCase
 {
-    /** @test */
+    #[Test]
     public function it_dispatches_process_podcast_job()
     {
         // 1. Подмени очередь на fake
@@ -23,7 +24,7 @@ class ProcessPodcastTest extends TestCase
         });
     }
 
-    /** @test */
+    #[Test]
     public function it_processes_podcast_correctly()
     {
         // 1. Подмени очередь на sync для немедленного выполнения

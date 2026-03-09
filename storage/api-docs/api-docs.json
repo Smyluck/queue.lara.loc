@@ -11,6 +11,71 @@
         }
     ],
     "paths": {
+        "/api/events": {
+            "post": {
+                "tags": [
+                    "Events"
+                ],
+                "summary": "Queue event sending",
+                "operationId": "2f6ced4b657ebc631bcececdded8dfd3",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "event",
+                                    "data"
+                                ],
+                                "properties": {
+                                    "event": {
+                                        "type": "string",
+                                        "example": "user created"
+                                    },
+                                    "data": {
+                                        "required": [
+                                            "user_id",
+                                            "email"
+                                        ],
+                                        "properties": {
+                                            "user_id": {
+                                                "type": "integer",
+                                                "example": 1
+                                            },
+                                            "email": {
+                                                "type": "string",
+                                                "format": "email",
+                                                "example": "user@example.com"
+                                            }
+                                        },
+                                        "type": "object"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Queued",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "message": {
+                                            "type": "string",
+                                            "example": "Событие отправлено в очередь!"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
         "/api/send-report": {
             "post": {
                 "tags": [
@@ -63,6 +128,10 @@
         }
     },
     "tags": [
+        {
+            "name": "Events",
+            "description": "Events"
+        },
         {
             "name": "Reports",
             "description": "Reports"
