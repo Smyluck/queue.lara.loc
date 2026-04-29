@@ -9,11 +9,11 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Foundation\Queue\Queueable;
+use Illuminate\Bus\Queueable;
 
 class ProcessEvent implements ShouldQueue
 {
-    use Queueable, Dispatchable, InteractsWithQueue, SerializesModels;
+    use Queueable, Dispatchable, InteractsWithQueue, SerializesModels; //Для того, чтобы попала в очередь во время обработки события и была видна в Horizon, а также для логирования и сериализации данных
 
     /**
      * Create a new job instance.
