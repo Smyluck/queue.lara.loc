@@ -23,9 +23,8 @@ class EventRequest extends FormRequest
     {
         return [
             'event' => 'required|string',
-            'data' => 'required|array',
-            'data.user_id' => 'sometimes|integer',
-            'data.email' => 'sometimes|email',
+            'data.user_id' => 'required|exists:users,id',
+            'data.email' => 'required|email',
         ];
     }
 }

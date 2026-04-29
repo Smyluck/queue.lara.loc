@@ -132,7 +132,8 @@ return [
     */
 
     'silenced' => [
-        // App\Jobs\ExampleJob::class,
+       // App\Jobs\ProcessEvent::class,
+       // App\Jobs\MonitorQueueLoad::class,  // Скрываем мониторинг из completed
     ],
 
     'silenced_tags' => [
@@ -155,7 +156,26 @@ return [
             'job' => 24,
             'queue' => 24,
         ],
+        'tags' => explode(',', env(
+            'HORIZON_TAGS',
+            'queue:default,queue:high,queue:low,report:daily,report:weekly,report:monthly,email:admin,mailing,monitoring,queue-stats,critical'
+        )),
     ],
+
+    'queues' => [                            
+        'high' => [                          
+             'balance' => 'simple',           
+             'maxProcesses' => 10,            
+        ],                                   
+        'default' => [                       
+             'balance' => 'simple',           
+             'maxProcesses' => 5,             
+        ],                                   
+        'low' => [                           
+             'balance' => 'simple',           
+             'maxProcesses' => 2,             
+        ],                                   
+    ],   
 
     /*
     |--------------------------------------------------------------------------
@@ -199,7 +219,7 @@ return [
     'defaults' => [
         'supervisor-1' => [
             'connection' => 'redis',
-            'queue' => ['default'],
+            'queue' => ['default', 'high', 'low'],
             'balance' => 'auto',
             'autoScalingStrategy' => 'time',
             'maxProcesses' => 1,
